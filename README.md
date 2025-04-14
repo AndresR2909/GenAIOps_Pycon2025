@@ -69,6 +69,7 @@ Esto:
 🔧 Para personalizar:
 ```python
 save_vectorstore(chunk_size=1024, chunk_overlap=100)
+python -c "from app.rag_pipeline import save_vectorstore; save_vectorstore(chunk_size=1024, chunk_overlap=100)"
 ```
 
 ♻️ Para reutilizarlo directamente:
@@ -220,7 +221,7 @@ Actualmente, la evaluación está basada en QAEvalChain de LangChain, que devuel
 
     * Las métricas por criterio (correctness_score, toxicity_score, etc.).
     * Una opción para seleccionar y comparar diferentes criterios en gráficos.
-    * (Opcional) Razonamientos del modelo como texto.    
+    * (Opcional) Razonamientos del modelo como texto.
 
 🧪 Parte 5: Presenta y reflexiona
 1. Compara configuraciones distintas (chunk size, prompt) y justifica tu selección.
