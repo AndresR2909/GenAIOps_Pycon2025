@@ -14,7 +14,7 @@ vectorstore/
 
 
 # Python virtual environments
-venv/
+.venv/
 .envrc
 
 # DVC cache (si se usa)
