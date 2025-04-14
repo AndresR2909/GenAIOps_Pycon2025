@@ -1,12 +1,12 @@
-# 🤖 Chatbot GenAI - Caso de Estudio Recursos Humanos
+# 🤖 Chatbot GenAI - Caso de Estudio experto en normas e infracciones de transito en colombia.
 
-Este proyecto demuestra cómo construir, evaluar y automatizar un chatbot de tipo RAG (Retrieval Augmented Generation) con buenas prácticas de **GenAIOps**.
+Este proyecto presenta la solucion al desafío para estudiantes de cómo construir, evaluar y automatizar un chatbot de tipo RAG (Retrieval Augmented Generation) con buenas prácticas de **GenAIOps** basado en workshop [GenAIOps_Pycon2025](https://github.com/darkanita/GenAIOps_Pycon2025/blob/587125e05f1c99b36f4da80641b42826521c96b5/README.md) porpuesto por la profesora [darkanita](https://github.com/darkanita).
 
 ---
 
 ## 🧠 Caso de Estudio
 
-El chatbot responde preguntas sobre beneficios, políticas internas y roles de una empresa ficticia (**Contoso Electronics**), usando como base una colección de documentos PDF internos.
+El chatbot responde preguntas sobre el codigo nacional de transito e infracciones, usando como base de conocimeinto documentos PDF con la ley 769 del codigo nacional de transito, ley 1548 de 2012 y un manual de infracciones.
 
 ---
 
@@ -39,10 +39,83 @@ El chatbot responde preguntas sobre beneficios, políticas internas y roles de u
 
 ## 🚦 Ciclo de vida GenAIOps aplicado
 
+## 🎓 Desafío para estudiantes
+
+🧩 Parte 1: Personalización
+
+1. Elige un nuevo dominio: legal,normatividad de transito.✅
+
+2. Reemplaza los documentos PDF: Ubícalos en data/pdfs/.✅
+
+3. Modifica o crea tus prompts: Edita los archivos en app/prompts/.✅
+
+4. Crea un conjunto de pruebas
+En [tests/eval_dataset.json](tests/eval_dataset.json), define preguntas y respuestas esperadas para evaluar a tu chatbot.✅
+
+✅ Parte 2: Evaluación Automática
+
+1. Ejecuta run_eval.py para probar tu sistema actual.(Cambiar varaible de entorno con el nombre de la version del prompt seleccionado)
+
+```bash
+python app/run_eval.py
+```
+Actualmente, la evaluación está basada en QAEvalChain de LangChain, que devuelve una métrica binaria: correcto / incorrecto.
+
+validar resultados en mlflow.
+
+```bash
+mlflow ui --port 5000
+```
+![metricas run_eval](image.png)
+![run_eval question 1](image-1.png)
+
+🔧 Parte 3: ¡Tu reto! (👨‍🔬 nivel investigador)
+
+1. Mejora el sistema de evaluación:
+
+    * Agrega evaluación con LabeledCriteriaEvalChain usando al menos los siguientes criterios:
+
+        * "correctness" – ¿Es correcta la respuesta?
+        * "relevance" – ¿Es relevante respecto a la pregunta?
+        * "coherence" – ¿Está bien estructurada la respuesta?
+        * "toxicity" – ¿Contiene lenguaje ofensivo o riesgoso?
+        * "harmfulness" – ¿Podría causar daño la información?
+
+    * Cada criterio debe registrar:
+
+        * Una métrica en MLflow (score)
+
+    * Y opcionalmente, un razonamiento como artefacto (reasoning)
+
+    📚 Revisa la [documentación de LabeledCriteriaEvalChain](https://python.langchain.com/api_reference/langchain/evaluation/langchain.evaluation.criteria.eval_chain.LabeledCriteriaEvalChain.html) para implementarlo.
+
+📊 Parte 4: Mejora el dashboard
+
+1. Extiende dashboard.py o main_interface.py para visualizar:
+
+    * Las métricas por criterio (correctness_score, toxicity_score, etc.).
+    * Una opción para seleccionar y comparar diferentes criterios en gráficos.
+    * (Opcional) Razonamientos del modelo como texto.
+
+🧪 Parte 5: Presenta y reflexiona
+1. Compara configuraciones distintas (chunk size, prompt) y justifica tu selección.
+    * ¿Cuál configuración genera mejores respuestas?
+    * ¿En qué fallan los modelos? ¿Fueron tóxicos o incoherentes?
+    * Usa evidencias desde MLflow y capturas del dashboard.
+
+🚀 Bonus
+
+- ¿Te animas a crear un nuevo criterio como "claridad" o "creatividad"? Puedes definirlo tú mismo y usarlo con LabeledCriteriaEvalChain.
+
+---
+
+
+
 ### 1. 🧱 Preparación del entorno
 
 ```bash
-git clone https://github.com/darkanita/GenAIOps_Pycon2025 chatbot-genaiops
+git clone https://github.com/AndresR2909/GenAIOps_Pycon2025.git chatbot-genaiops
+git checkout expert_in_Colombian_traffic_regulations
 cd chatbot-genaiops
 conda create -n chatbot-genaiops python=3.10 -y
 conda activate chatbot-genaiops
@@ -57,7 +130,7 @@ cp .env.example .env  # Agrega tu API KEY de OpenAI
 Procesa los PDFs y genera el índice vectorial:
 
 ```bash
-python -c "from app.rag_pipeline import save_vectorstore; save_vectorstore()"
+python -c "from app.rag_pipeline import save_vectorstore; save_vectorstore(chunk_size=1024, chunk_overlap=100);"
 ```
 
 Esto:
@@ -66,10 +139,6 @@ Esto:
 - Guarda el índice vectorial en `vectorstore/`
 - Registra los parámetros en **MLflow**
 
-🔧 Para personalizar:
-```python
-save_vectorstore(chunk_size=1024, chunk_overlap=100)
-```
 
 ♻️ Para reutilizarlo directamente:
 ```python
@@ -172,66 +241,3 @@ pytest tests/test_run_eval.py
 - **DevContainer** – Desarrollo portable
 
 ---
-
-## 🎓 Desafío para estudiantes
-
-🧩 Parte 1: Personalización
-
-1. Elige un nuevo dominio
-Ejemplos: salud, educación, legal, bancario, etc.
-
-2. Reemplaza los documentos PDF
-Ubícalos en data/pdfs/.
-
-3. Modifica o crea tus prompts
-Edita los archivos en app/prompts/.
-
-4. Crea un conjunto de pruebas
-En tests/eval_dataset.json, define preguntas y respuestas esperadas para evaluar a tu chatbot.
-
-✅ Parte 2: Evaluación Automática
-
-1. Ejecuta run_eval.py para probar tu sistema actual.
-Actualmente, la evaluación está basada en QAEvalChain de LangChain, que devuelve una métrica binaria: correcto / incorrecto.
-
-🔧 Parte 3: ¡Tu reto! (👨‍🔬 nivel investigador)
-
-1. Mejora el sistema de evaluación:
-
-    * Agrega evaluación con LabeledCriteriaEvalChain usando al menos los siguientes criterios:
-
-        * "correctness" – ¿Es correcta la respuesta?
-        * "relevance" – ¿Es relevante respecto a la pregunta?
-        * "coherence" – ¿Está bien estructurada la respuesta?
-        * "toxicity" – ¿Contiene lenguaje ofensivo o riesgoso?
-        * "harmfulness" – ¿Podría causar daño la información?
-
-    * Cada criterio debe registrar:
-
-        * Una métrica en MLflow (score)
-
-    * Y opcionalmente, un razonamiento como artefacto (reasoning)
-
-    📚 Revisa la [documentación de LabeledCriteriaEvalChain](https://python.langchain.com/api_reference/langchain/evaluation/langchain.evaluation.criteria.eval_chain.LabeledCriteriaEvalChain.html) para implementarlo.
-
-📊 Parte 4: Mejora el dashboard
-
-1. Extiende dashboard.py o main_interface.py para visualizar:
-
-    * Las métricas por criterio (correctness_score, toxicity_score, etc.).
-    * Una opción para seleccionar y comparar diferentes criterios en gráficos.
-    * (Opcional) Razonamientos del modelo como texto.    
-
-🧪 Parte 5: Presenta y reflexiona
-1. Compara configuraciones distintas (chunk size, prompt) y justifica tu selección.
-    * ¿Cuál configuración genera mejores respuestas?
-    * ¿En qué fallan los modelos? ¿Fueron tóxicos o incoherentes?
-    * Usa evidencias desde MLflow y capturas del dashboard.
-
-🚀 Bonus
-
-- ¿Te animas a crear un nuevo criterio como "claridad" o "creatividad"? Puedes definirlo tú mismo y usarlo con LabeledCriteriaEvalChain.
-
----
-
-¡Listo para ser usado en clase, investigación o producción educativa! 🚀
