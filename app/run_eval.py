@@ -9,10 +9,13 @@ from dotenv import load_dotenv
 from langchain.evaluation.qa import QAEvalChain
 from langchain_openai import ChatOpenAI
 
-from app.rag_pipeline import build_chain
-from app.rag_pipeline import load_vectorstore_from_disk
+# fmt: off
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
+
+from app.rag_pipeline import build_chain
+from app.rag_pipeline import load_vectorstore_from_disk
+# fmt: on
 
 load_dotenv()
 
