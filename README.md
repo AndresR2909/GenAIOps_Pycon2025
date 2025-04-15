@@ -1,6 +1,6 @@
 # 🤖 Chatbot GenAI - Caso de Estudio experto en normas e infracciones de transito en colombia.
 
-Este proyecto presenta la solucion al desafío para estudiantes de cómo construir, evaluar y automatizar un chatbot de tipo RAG (Retrieval Augmented Generation) con buenas prácticas de **GenAIOps** basado en workshop [GenAIOps_Pycon2025](https://github.com/darkanita/GenAIOps_Pycon2025/blob/587125e05f1c99b36f4da80641b42826521c96b5/README.md) porpuesto por la profesora [darkanita](https://github.com/darkanita).
+Este proyecto presenta la solucion al desafío para estudiantes de cómo construir, evaluar y automatizar un chatbot de tipo RAG (Retrieval Augmented Generation) con buenas prácticas de **GenAIOps** basado en workshop [GenAIOps_Pycon2025](https://github.com/darkanita/GenAIOps_Pycon2025/blob/587125e05f1c99b36f4da80641b42826521c96b5/README.md) propuesto por la profesora [darkanita](https://github.com/darkanita).
 
 ---
 
