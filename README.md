@@ -100,6 +100,17 @@ mlflow ui --port 5000
     * Una opción para seleccionar y comparar diferentes criterios en gráficos.
     * (Opcional) Razonamientos del modelo como texto.
 
+Versión mejorada con métricas:
+```bash
+streamlit run app/improved_main_interface.py
+```
+![métricas por criterio](image-6.png)
+
+![comparar metricas en grafico](image-4.png)
+
+![Razonamientos del modelo como texto](image-5.png)
+---
+
 🧪 Parte 5: Presenta y reflexiona
 1. Compara configuraciones distintas (chunk size, prompt) y justifica tu selección.
     * ¿Cuál configuración genera mejores respuestas?
