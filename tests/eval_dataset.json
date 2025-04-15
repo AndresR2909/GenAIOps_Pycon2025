@@ -4,10 +4,6 @@
         "answer": "La caja de herramientas básica debe contener alicate, destornilladores, llave de expansión y llaves fijas."
     },
     {
-        "question": "¿Quién establece el nivel de emisión de gases contaminantes de los vehículos?",
-        "answer": "El nivel de emisión de gases contaminantes es establecido por la autoridad ambiental competente."
-    },
-    {
         "question": "¿Qué establece el Artículo 140 de la Ley 769 de 2002?",
         "answer": "El Artículo 140 de la Ley 769 de 2002 establece que los organismos de tránsito pueden hacer efectivas las multas por infracciones a este código a través de la jurisdicción coactiva, conforme a lo que se establezca sobre ejecuciones fiscales en el Código de Procedimiento Civil. Además, señala que será procedente la inmovilización del vehículo o la retención de la licencia de conducción si, pasados treinta (30) días de la imposición de la multa, esta no ha sido debidamente cancelada."
     },
@@ -16,7 +12,7 @@
         "answer": "Es obligatorio llevar un extintor, dos tacos para bloquear el vehículo, caja de herramientas básica, llanta de repuesto y una linterna."
     },
     {
-        "question": "¿Puede responder preguntas sobre normas de otro país que no sea Colombia?",
+        "question": "¿Puedes responder preguntas sobre normas de transito otro país que no sea Colombia?",
         "answer": "Lo siento, solo puedo responder preguntas relacionadas con las normas de tránsito en Colombia según la información disponible."
     },
     {

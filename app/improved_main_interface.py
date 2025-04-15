@@ -131,6 +131,19 @@ elif modo == '📊 Métricas':
     ]
     st.dataframe(df.drop(columns=drop_columns))
 
+    # Filtrar y agrupar dataset por Chunk Size y Prompt, sacar promedio del resto de columnas
+    df_grouped = (
+        df.drop(columns=['Run ID', 'Pregunta', 'correcto (LC)'])
+        .groupby(['Chunk Size', 'Prompt'])
+        .mean()
+        .reset_index()
+    )
+
+    # Selección de criterios a mostrar en un gráfico
+    st.subheader('criterios de evaluación (scores) x Chunk Size y  Prompt')
+
+    st.dataframe(df_grouped)
+
     # Selección de criterios a mostrar en un gráfico
     st.subheader('Comparar criterios de evaluación (scores)')
 
