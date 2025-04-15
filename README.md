@@ -20,7 +20,7 @@ El chatbot responde preguntas sobre el codigo nacional de transito e infraccione
 │   ├── run_eval.py               ← evaluación automática
 │   ├── rag_pipeline.py           ← lógica de ingestión y RAG
 │   └── prompts/
-│       ├── v1_asistente_rrhh.txt
+│       ├── v1_asistente_transito.txt
 │       └── v2_resumido_directo.txt
 ├── data/pdfs/                    ← documentos fuente
 ├── tests/
