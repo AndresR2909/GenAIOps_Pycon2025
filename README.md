@@ -16,6 +16,7 @@ El chatbot responde preguntas sobre el codigo nacional de transito e infraccione
 ├── app/
 │   ├── ui_streamlit.py           ← interfaz simple del chatbot
 │   ├── main_interface.py         ← interfaz combinada con métricas
+│   ├── improved_main_interface.py ← interfaz mejorada desafio propuesto
 │   ├── run_eval.py               ← evaluación automática
 │   ├── rag_pipeline.py           ← lógica de ingestión y RAG
 │   └── prompts/
@@ -104,7 +105,9 @@ Versión mejorada con métricas:
 ```bash
 streamlit run app/improved_main_interface.py
 ```
-![métricas por criterio](image-6.png)
+![métricas experimento por pregunta](image-6.png)
+
+![metricas consolidadas por tamaño chunk y prompt](image-11.png)
 
 ![comparar metricas en grafico](image-4.png)
 
@@ -113,19 +116,71 @@ streamlit run app/improved_main_interface.py
 
 🧪 Parte 5: Presenta y reflexiona
 1. Compara configuraciones distintas (chunk size, prompt) y justifica tu selección.
-    * ¿Cuál configuración genera mejores respuestas?
-    * ¿En qué fallan los modelos? ¿Fueron tóxicos o incoherentes?
+    * ¿Cuál configuración genera mejores respuestas? -> sin importar el tamaño del chunk,
+    el prompt version v1_asistente_transito, fue el que dio mejores resultados. ver imagen v1_asistente_transito.
+    * ¿En qué fallan los modelos? -> En las respuestas con aluccinaciones(4/10) y el numero de respuestas correctas (6/10).
+
+    ![Fallas modelos](image-12.png)
+
     * Usa evidencias desde MLflow y capturas del dashboard.
+
+cambiar valore de variables de entorno para cuatro escenarios de experimentación:
+
+configuracion 1:
+
+```bash
+PROMPT_VERSION=v1_asistente_transito
+CHUNK_SIZE=512
+CHUNK_OVERLAP=50
+EVAL_METHOD='criteria_eval'
+```
+![v1_asistente_transito](image-7.png)
+
+configuracion 2:
+
+```bash
+PROMPT_VERSION=v2_resumido_directo
+CHUNK_SIZE=512
+CHUNK_OVERLAP=50
+EVAL_METHOD='criteria_eval'
+```
+![v2_resumido_directo](image-8.png)
+
+configuracion 3:
+
+```bash
+PROMPT_VERSION=v1_asistente_transito
+CHUNK_SIZE=1024
+CHUNK_OVERLAP=100
+EVAL_METHOD='criteria_eval'
+```
+![v1_asistente_transito](image-10.png)
+
+configuracion 4:
+
+```bash
+PROMPT_VERSION=v2_resumido_directo
+CHUNK_SIZE=1024
+CHUNK_OVERLAP=100
+EVAL_METHOD='criteria_eval'
+```
+![v2_resumido_directo](image-9.png)
+
+```bash
+python app/run_eval.py
+```
 
 🚀 Bonus
 
 - ¿Te animas a crear un nuevo criterio como "claridad" o "creatividad"? Puedes definirlo tú mismo y usarlo con LabeledCriteriaEvalChain.
 
+se creo un nuevo criterio de alucinaciones hallucination_score
+
 ---
 
+## 🧱 Recuerda
 
-
-### 1. 🧱 Preparación del entorno
+###  🧱 Preparación del entorno
 
 ```bash
 git clone https://github.com/AndresR2909/GenAIOps_Pycon2025.git chatbot-genaiops
@@ -139,12 +194,12 @@ cp .env.example .env  # Agrega tu API KEY de OpenAI
 
 ---
 
-### 2. 🔍 Ingesta y vectorización de documentos
+### 🔍 Ingesta y vectorización de documentos
 
 Procesa los PDFs y genera el índice vectorial:
 
 ```bash
-python -c "from app.rag_pipeline import save_vectorstore; save_vectorstore(chunk_size=1024, chunk_overlap=100);"
+python -c "from app.rag_pipeline import save_vectorstore; save_vectorstore();"
 ```
 
 Esto:
@@ -161,11 +216,11 @@ vectordb = load_vectorstore_from_disk()
 
 ---
 
-### 3. 🧠 Construcción del pipeline RAG
+### 🧠 Construcción del pipeline RAG
 
 ```python
 from app.rag_pipeline import build_chain
-chain = build_chain(vectordb, prompt_version="v1_asistente_rrhh")
+chain = build_chain(vectordb, prompt_version="v1_asistente_transito")
 ```
 
 - Soporta múltiples versiones de prompt
