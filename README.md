@@ -74,7 +74,7 @@ mlflow ui --port 5000
 
 1. Mejora el sistema de evaluación:
 
-    * Agrega evaluación con LabeledCriteriaEvalChain usando al menos los siguientes criterios:
+    * Agrega evaluación con LabeledCriteriaEvalChain usando al menos los siguientes criterios: 
 
         * "correctness" – ¿Es correcta la respuesta?
         * "relevance" – ¿Es relevante respecto a la pregunta?
@@ -86,11 +86,13 @@ mlflow ui --port 5000
 
         * Una métrica en MLflow (score)
 
-    * Y opcionalmente, un razonamiento como artefacto (reasoning)
+    * Y opcionalmente, un razonamiento como artefacto (reasoning) 
 
     📚 Revisa la [documentación de LabeledCriteriaEvalChain](https://python.langchain.com/api_reference/langchain/evaluation/langchain.evaluation.criteria.eval_chain.LabeledCriteriaEvalChain.html) para implementarlo.
-
+    se actualiza codigo de -> [app/run_eval.py](app/run_eval.py)
+   
     ![metricas y parametros con LabeledCriteriaEvalChain](image-2.png)
+   
     ![artefactos con LabeledCriteriaEvalChain](image-3.png)
 
 📊 Parte 4: Mejora el dashboard
