@@ -89,6 +89,9 @@ mlflow ui --port 5000
 
     📚 Revisa la [documentación de LabeledCriteriaEvalChain](https://python.langchain.com/api_reference/langchain/evaluation/langchain.evaluation.criteria.eval_chain.LabeledCriteriaEvalChain.html) para implementarlo.
 
+    ![metricas y parametros con LabeledCriteriaEvalChain](image-2.png)
+    ![artefactos con LabeledCriteriaEvalChain](image-3.png)
+
 📊 Parte 4: Mejora el dashboard
 
 1. Extiende dashboard.py o main_interface.py para visualizar:
