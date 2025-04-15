@@ -90,11 +90,11 @@ mlflow ui --port 5000
 
     📚 Revisa la [documentación de LabeledCriteriaEvalChain](https://python.langchain.com/api_reference/langchain/evaluation/langchain.evaluation.criteria.eval_chain.LabeledCriteriaEvalChain.html) para implementarlo.
 
-   se crea funcion evaluate_with_criteria_eval() y se adecua codigo -> [app/run_eval.py](app/run_eval.py)
+   ✅ se crea funcion evaluate_with_criteria_eval() y se adecua codigo -> [app/run_eval.py](app/run_eval.py)
    
-    ![metricas y parametros con LabeledCriteriaEvalChain](image-2.png)
+   ✅ ![metricas y parametros con LabeledCriteriaEvalChain](image-2.png)
    
-    ![artefactos con LabeledCriteriaEvalChain](image-3.png)
+   ✅ ![artefactos con LabeledCriteriaEvalChain](image-3.png)
 
 📊 Parte 4: Mejora el dashboard
 
@@ -104,7 +104,7 @@ mlflow ui --port 5000
     * Una opción para seleccionar y comparar diferentes criterios en gráficos.
     * (Opcional) Razonamientos del modelo como texto.
 
-Versión mejorada con métricas:
+✅ Versión mejorada con métricas:
 ```bash
 streamlit run app/improved_main_interface.py
 ```
@@ -119,8 +119,10 @@ streamlit run app/improved_main_interface.py
 
 🧪 Parte 5: Presenta y reflexiona
 1. Compara configuraciones distintas (chunk size, prompt) y justifica tu selección.
+
     * ¿Cuál configuración genera mejores respuestas? -> sin importar el tamaño del chunk,
     el prompt version v1_asistente_transito, fue el que dio mejores resultados. ver imagen v1_asistente_transito.
+
     * ¿En qué fallan los modelos? -> En las respuestas con aluccinaciones(4/10) y el numero de respuestas correctas (6/10).
 
     ![Fallas modelos](image-12.png)
