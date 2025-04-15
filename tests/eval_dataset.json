@@ -1,22 +1,43 @@
 [
     {
-        "question": "\u00bfQu\u00e9 cubre el plan de beneficios Northwind Health Plus?",
-        "answer": "El plan Northwind Health Plus cubre atenci\u00f3n m\u00e9dica, dental, de la vista, medicamentos recetados y servicios de salud mental."
+        "question": "¿Qué componentes debe tener la caja de herramientas básica de un vehículo?",
+        "answer": "La caja de herramientas básica debe contener alicate, destornilladores, llave de expansión y llaves fijas."
     },
     {
-        "question": "\u00bfCu\u00e1l es el procedimiento para tomar una licencia por maternidad?",
-        "answer": "Debes notificar a Recursos Humanos al menos 30 d\u00edas antes de la fecha esperada y presentar la documentaci\u00f3n m\u00e9dica correspondiente."
+        "question": "¿Qué establece el Artículo 140 de la Ley 769 de 2002?",
+        "answer": "El Artículo 140 de la Ley 769 de 2002 establece que los organismos de tránsito pueden hacer efectivas las multas por infracciones a este código a través de la jurisdicción coactiva, conforme a lo que se establezca sobre ejecuciones fiscales en el Código de Procedimiento Civil. Además, señala que será procedente la inmovilización del vehículo o la retención de la licencia de conducción si, pasados treinta (30) días de la imposición de la multa, esta no ha sido debidamente cancelada."
     },
     {
-        "question": "\u00bfQu\u00e9 incluye el programa PerksPlus?",
-        "answer": "PerksPlus incluye descuentos en gimnasios, membres\u00edas de bienestar, vales de alimentos y soporte financiero."
+        "question": "¿Qué accesorios son obligatorios llevar en el vehículo?",
+        "answer": "Es obligatorio llevar un extintor, dos tacos para bloquear el vehículo, caja de herramientas básica, llanta de repuesto y una linterna."
     },
     {
-        "question": "\u00bfQu\u00e9 responsabilidades tiene un analista de datos seg\u00fan el role library?",
-        "answer": "Seg\u00fan el Role Library, un analista de datos debe recolectar, limpiar y analizar datos para generar reportes estrat\u00e9gicos para el negocio."
+        "question": "¿Puedes responder preguntas sobre normas de transito otro país que no sea Colombia?",
+        "answer": "Lo siento, solo puedo responder preguntas relacionadas con las normas de tránsito en Colombia según la información disponible."
     },
     {
-        "question": "\u00bfCu\u00e1les son los beneficios est\u00e1ndar de Northwind?",
-        "answer": "Los beneficios est\u00e1ndar incluyen seguro m\u00e9dico b\u00e1sico, vacaciones pagadas, y plan de retiro 401(k)."
+        "question": "¿Cuál es el tiempo de caducidad de la acción o contravención de las normas de tránsito?",
+        "answer": "La acción o contravención de las normas de tránsito caduca a los seis (6) meses, contados a partir de la ocurrencia de los hechos que dieron origen a ella. Este período se interrumpe con la celebración efectiva de la audiencia."
+    },
+    {
+        "question": "¿Si el presunto infractor no acepta la comisión de la infracción, éste deberá?",
+        "answer": "Comparecer dentro de los cinco días hábiles siguientes ante la autoridad administrativa y tiene derecho a nombrar un apoderado, con carácter de abogado titulado, que lo asista en la audiencia."
+    },
+    {
+        "question": "¿Si el presunto infractor acepta la comisión de la infracción podrá?",
+        "answer": "Cancelar el cincuenta por ciento del valor de la multa dentro de los cinco días hábiles siguientes a la orden de comparendo y asistir obligatoriamente a un curso sobre normas de tránsito, o cancelar el setenta y cinco por ciento del valor de la multa si paga entre el sexto y vigésimo día."
+    },
+    {
+        "question": "¿Llevar niños menores de que edad, en el asiento delantero da infracción?",
+        "answer": "Niños menores de 10 años"
+    },
+    {
+        "question": "¿Qué sucede si un conductor porta luces exploradoras en la parte posterior del vehículo?",
+        "answer": "El vehículo podrá ser inmovilizado preventivamente hasta que dichas luces sean retiradas, ya que las luces exploradoras deben ser utilizadas solo hacia la superficie de la vía y bajo condiciones específicas."
+    },
+    {
+        "question": "¿Qué sucede si me niego a la prueba de alcoholemia según la ley 1548 de 2012?",
+        "answer": "Si un conductor se niega a permitir la realización de las pruebas físicas o clínicas de alcoholemia, incurrirá en una falta sancionada con multa y con la suspensión de la licencia de conducción entre cinco (5) y diez (10) años."
     }
+
 ]
