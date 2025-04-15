@@ -89,7 +89,8 @@ mlflow ui --port 5000
     * Y opcionalmente, un razonamiento como artefacto (reasoning) 
 
     📚 Revisa la [documentación de LabeledCriteriaEvalChain](https://python.langchain.com/api_reference/langchain/evaluation/langchain.evaluation.criteria.eval_chain.LabeledCriteriaEvalChain.html) para implementarlo.
-    se actualiza codigo de -> [app/run_eval.py](app/run_eval.py)
+
+   se crea funcion evaluate_with_criteria_eval() y se adecua codigo -> [app/run_eval.py](app/run_eval.py)
    
     ![metricas y parametros con LabeledCriteriaEvalChain](image-2.png)
    
