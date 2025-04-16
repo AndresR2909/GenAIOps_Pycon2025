@@ -49,7 +49,7 @@ modo = st.sidebar.radio(
 # Sección de Chatbot
 ###################################################
 if modo == '🤖 Chatbot':
-    st.title('🤖 Asistente de Recursos Humanos')
+    st.title('🤖 Asistente de Normas de transito')
 
     pregunta = st.text_input('¿Qué deseas consultar?')
 
